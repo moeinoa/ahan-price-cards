@@ -1,0 +1,168 @@
+.apc{--apc-primary:#5E0520;--apc-gold:#EEC64F;--apc-card:rgba(107,7,37,.8);--apc-chip:#7B0A2D;--apc-text:#DFDFDF;
+  --cols:2;position:relative;overflow:hidden;direction:rtl;;
+  background:linear-gradient(69.5deg,#8B0C32 3.7%,#710928 101.6%);padding:24px 24px 14px}
+.apc *{box-sizing:border-box}
+.apc-decor{position:absolute;pointer-events:none;max-width:none}
+.apc-decor--left{left:-295px;top:50%;width:460px;transform:translateY(-35%);opacity:.8;filter:blur(2px)}
+.apc-clock{position:absolute;right:-90px;bottom:-80px;width:330px;height:330px;opacity:.55;pointer-events:none}
+.apc-clock line{transform-origin:100px 100px}
+@media (max-width:1100px){.apc-clock{width:240px;height:240px;right:-70px;bottom:-70px;opacity:.35}}
+
+.apc-inner{position:relative;z-index:1;max-width:1140px;margin:0 auto;display:flex;gap:32px;align-items:flex-start}
+.apc-head{flex:0 0 206px;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.apc-eyebrow{margin:0;width:100%;text-align:right;font-weight:700;font-size:28px;line-height:1.8;color:var(--apc-gold)}
+.apc-badge{width:100%;background:var(--apc-gold);color:var(--apc-primary);border-radius:12px;padding:4px 11px;text-align:center;line-height:1.8}
+.apc-badge strong{display:block;font-weight:800;font-size:32px}
+.apc-badge span{display:block;font-weight:600;font-size:24px;white-space:nowrap}
+
+.apc-slider{flex:1;min-width:0}
+.apc-stage{display:grid}
+.apc-page{grid-area:1/1;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:16px;align-content:start;
+  opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
+.apc-page.is-active{opacity:1;visibility:visible}
+
+.apc-card{display:flex;gap:12px;align-items:center;background:var(--apc-card);border:1px solid var(--apc-primary);border-radius:16px;padding:16px;min-height:195px}
+.apc-card__media{flex:0 0 172px;height:170px;border-radius:12px;background:var(--apc-primary);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.apc-card__media img{width:100%;height:100%;object-fit:contain;display:block}
+.apc-card__body{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.apc-chip{align-self:flex-start;background:var(--apc-chip);color:var(--apc-text);border-radius:1000px;padding:2px 12px;font-size:16px;line-height:1.8}
+.apc-card__title{margin:0;color:var(--apc-text);font-weight:600;font-size:16px;line-height:1.8}
+.apc-price{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;border-radius:8px;padding:4px 8px;color:var(--apc-primary)}
+.apc-price__label{display:flex;align-items:center;gap:4px;font-weight:500;font-size:12px;white-space:nowrap}
+.apc-price__label i{width:6px;height:6px;border-radius:50%;background:#4cd964;display:block}
+.apc-price__val{font-weight:700;font-size:20px;line-height:28px;letter-spacing:1px}
+.apc-actions{display:flex;gap:8px;align-items:center;flex-direction: row-reverse;}
+.apc-cart{flex:0 0 40px;width:40px;height:40px;border:0;padding:8px;border-radius:8px;background:var(--apc-gold);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.apc-cart .ahp-btn-icon{display:flex}
+.apc-cart svg{width:24px;height:24px}
+.apc-list{flex:1;height:40px;display:flex;align-items:center;justify-content:center;border:1.6px solid var(--apc-gold);border-radius:8px;color:var(--apc-gold);font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap;padding:0 12px;transition:background .2s,color .2s}
+.apc-list:hover{background:var(--apc-gold);color:var(--apc-primary)}
+
+.apc-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px}
+.apc-nav[hidden]{display:none}
+.apc-prev,.apc-next{width:36px;height:36px;border-radius:50%;border:1.6px solid var(--apc-gold);background:transparent;color:var(--apc-gold);font-size:22px;line-height:1;cursor:pointer;padding:0;display:none;}
+.apc-prev:hover,.apc-next:hover{background:var(--apc-gold);color:var(--apc-primary)}
+.apc-dots{display:flex;gap:8px}
+.apc-dot{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:rgba(238,198,79,.35);cursor:pointer;transition:width .25s,background .25s}
+.apc-dot.is-active{width:26px;border-radius:6px;background:var(--apc-gold)}
+
+@media (max-width:1100px){
+  .apc-inner{flex-direction:column;align-items:stretch}
+  .apc-head{flex:none;align-items:start}
+  .apc-eyebrow{text-align:start}
+  .apc-badge{max-width: 195px;padding: 4px 4px;}
+  .apc-decor--left {top: 15%;}
+}
+@media (max-width:600px){
+  .apc{padding:18px 14px;}
+  .apc-card{flex-direction:column;align-items:stretch}
+  .apc-card__media{flex-basis:auto;height: 70px;width: 70px;position: absolute;}
+  .apc-card__top{align-items:flex-start}
+  .apc-chip, .apc-card__title {margin-inline-start: 85px;}
+  .apc-price {margin-block-start: 10px;}
+}
+
+.apc-rows{display:grid}
+.apc-row{grid-area:1/1;display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
+.apc-row.is-active{opacity:1;visibility:visible}
+
+/* لایهٔ فعال همیشه بالاتر و قابل کلیک؛ لایه‌های غیرفعال کلیک نمی‌گیرند */
+.apc-page,.apc-row{position:relative;z-index:1;pointer-events:none}
+.apc-page.is-active{z-index:20;pointer-events:auto}
+.apc-row.is-active{z-index:20;pointer-events:auto}
+.apc-card{position:relative}
+.apc-inner{z-index:2}
+
+/* جلوگیری از بیرون‌زدن متن‌های بلند از کارت */
+.apc-card{overflow:hidden;min-width:0}
+.apc-card__body{min-width:0;overflow:hidden}
+.apc-rows,.apc-row{min-width:0}
+.apc-chip{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.apc-card__title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word;min-height:3.6em}
+.apc-price{min-width:0}
+.apc-price__label{flex:0 0 auto}
+.apc-price__val{min-width:0;overflow:hidden;/*text-overflow:ellipsis*/;white-space:nowrap;font-size:clamp(15px,1.6vw,20px)}
+.apc-list{min-width:0;overflow:hidden;text-overflow:ellipsis;display:block;line-height:37px;text-align:center}
+
+/* لایه‌های غیرفعال هیچ‌وقت رویداد ماوس نگیرند */
+.apc-page:not(.is-active) *,.apc-row:not(.is-active) *{pointer-events:none!important}
+
+/* عنوان اصلی h1: استایل قالب اثر نکند */
+.apc .apc-badge .apc-title{display:block;margin:0!important;padding:0!important;color:#5E0520!important;font-family:inherit!important;font-weight:800!important;font-size:32px!important;line-height:1.8!important;letter-spacing:0!important;text-transform:none!important;text-align:center!important;background:none!important;border:0!important}
+
+/* عنوان کارت فقط یک خط */
+.apc-card__title{-webkit-line-clamp:1;min-height:0;white-space:nowrap;text-overflow:ellipsis;display:block}
+
+/* h1 = «آهن‌شهر پاسارگاد» (زرد)؛ استایل قالب اثر نکند */
+.apc .apc-head .apc-eyebrow{display:block;width:100%;margin:0!important;padding:0!important;color:#EEC64F!important;font-family:inherit!important;font-weight:700!important;font-size:28px!important;line-height:1.8!important;letter-spacing:0!important;text-transform:none!important;text-align:right!important;background:none!important;border:0!important}
+
+/* ── دکمهٔ سبد (الگوبرداری از افزونهٔ پیش‌فاکتور: لودر، تیک موفقیت، غیرفعال) ── */
+.apc-cart{position:relative;color:#5E0520;transition:background-color .18s ease,color .18s ease,transform .18s ease}
+.apc-cart .ahp-btn-icon{line-height:0;pointer-events:none;transition:opacity .15s}
+.apc-cart .ahp-btn-icon svg{width:24px;height:24px;display:block}
+.apc-cart:hover{transform:translateY(-1px)}
+.apc-cart:active{transform:scale(.94)}
+.apc-cart:disabled{cursor:progress;transform:none}
+.apc-cart:disabled .ahp-btn-icon{opacity:0}
+.apc-cart:disabled::after{content:"";position:absolute;inset:0;margin:auto;width:20px;height:20px;border-radius:50%;
+  border:2.5px solid rgba(94,5,32,.25);border-top-color:#5E0520;animation:apc-spin .7s linear infinite}
+.apc-cart.ahp-added{background:#22a861;color:#fff}
+@keyframes apc-spin{to{transform:rotate(360deg)}}
+
+/* ── نقطهٔ زندهٔ کنار «قیمت لحظه‌ای» ── */
+.apc-price__label i{position:relative;background:#4cd964;animation:apc-blink 1.4s ease-in-out infinite}
+.apc-price__label i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#4cd964;animation:apc-ping 1.4s ease-out infinite}
+@keyframes apc-blink{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes apc-ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.apc-price__label i,.apc-price__label i::after{animation:none}}
+
+/* ── جلوگیری از پرش قبل از اجرای JS: چیدمان اولیه موبایل/تبلت همان چیدمان نهایی است ── */
+@media (max-width:1100px){.apc:not(.is-ready) .apc-card:nth-child(n+3){display:none}}
+@media (max-width:600px){.apc:not(.is-ready){--cols:1}.apc:not(.is-ready) .apc-card:nth-child(n+2){display:none}}
+
+/* ── نوار تایمر پایین کارت (مثل border-bottom): از سمت شروع پر می‌شود؛ گوشه‌های گرد را overflow کارت می‌برد ── */
+.apc-timebar{position:absolute;inset-inline:0;inset-block-end:0;height:1.6px;background:rgba(238,198,79,.2);z-index:21;pointer-events:none}
+.apc-timebar i{display:block;height:100%;background:var(--apc-gold);transform:scaleX(0);transform-origin:right center}
+@media (prefers-reduced-motion:reduce){.apc-timebar{display:none}}
+
+/* نقطهٔ فعال = تایمر اسلاید: زمینهٔ کم‌رنگ و پرشدن طلایی از سمت شروع (بدون autoplay کاملاً پر می‌ماند) */
+.apc-dot{position:relative;overflow:hidden}
+.apc-dot i{position:absolute;inset:0;background:var(--apc-gold);transform:scaleX(0);transform-origin:right center}
+.apc-dot.is-active{background:rgba(238,198,79,.35)}
+.apc-dot.is-active i{transform:scaleX(1)}
+
+/* ── نوار «فروش ویژه» (موقتی): تمام‌عرض زیر اسلایدر؛ با خاموش‌شدن تاگل، کلاس .apc--sale برداشته می‌شود و ساعت به جای قبلی برمی‌گردد ── */
+.apc--sale .apc-clock{bottom:calc(var(--apc-sale-h,80px) - 80px)}
+@media (max-width:1100px){.apc--sale .apc-clock{bottom:calc(var(--apc-sale-h,80px) - 70px)}}
+
+.apc-sale{--apc-sale-red:#F02D40;position:relative;z-index:3;margin:14px -24px -14px;padding:16px 24px;min-height:80px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--apc-sale-red);color:#fff}
+.apc-sale__pct{flex:none;font-size:47px;font-weight:700;line-height:48px}
+.apc-sale__head{flex:none;display:flex;align-items:center;gap:8px}
+.apc-sale__tag{display:flex;align-items:center;height:48px;padding:0 12px;border-radius:999px;background:#fff;color:var(--apc-sale-red);font-size:24px;font-weight:900;line-height:1.8;white-space:nowrap}
+.apc-sale__title{display:flex;align-items:center;gap:8px;margin:0;font-size:24px;font-weight:700;line-height:1.8;color:#fff;white-space:nowrap}
+.apc-sale__list{flex:1;min-width:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 0;margin:0;padding:0;list-style:none}
+.apc-sale__list li{display:flex;flex-direction:column;align-items:flex-end;min-width:0;padding-inline:12px}
+.apc-sale__list li+li{border-inline-start:1.6px solid rgba(255,255,255,.6)}
+.apc-sale__size{display:inline-flex;align-items:center;max-width:100%;height:22px;padding:0 12px;border:1px solid #fff;border-radius:999px;font-size:12px;font-weight:500;line-height:1.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.apc-sale__price{display:flex;align-items:center;gap:4px;white-space:nowrap}
+.apc-sale__price b{font-size:20px;font-weight:900;line-height:1.8}
+.apc-sale__price small{font-size:10px;font-weight:800}
+.apc-sale__cta{flex:none;display:flex;align-items:center;justify-content:center;height:48px;padding:0 16px;border-radius:999px;background:var(--apc-gold);color:var(--apc-primary);font-size:16px;font-weight:600;text-decoration:none;white-space:nowrap}
+.apc-sale__cta:hover{filter:brightness(1.06)}
+
+@media (max-width:1100px){
+  .apc-sale{display:grid;grid-template-columns:auto 1fr auto;gap:12px 16px;align-items:center}
+  .apc-sale>.apc-sale__pct:first-child{grid-area:1/1}
+  .apc-sale>.apc-sale__pct:last-child{grid-area:1/3}
+  .apc-sale__head{grid-area:1/2;flex-direction:column;gap:6px}
+  .apc-sale__list{grid-area:2/1/3/4;flex-direction:column;justify-content:flex-start;gap:8px}
+  .apc-sale__list li,.apc-sale__list li+li{flex-direction:row;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid rgba(255,255,255,.6);border-radius:12px}
+  .apc-sale__cta{grid-area:3/1/4/4}
+}
+@media (max-width:600px){
+  .apc-sale{margin:14px -14px -18px;padding:16px 14px}
+  .apc-sale__tag,.apc-sale__title{font-size:20px}
+  .apc-sale__tag{height:40px}
+  .apc-sale__pct{font-size:36px}
+}

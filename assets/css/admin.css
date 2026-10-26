@@ -1,0 +1,64 @@
+/* ── صفحهٔ تنظیمات «کارت‌های قیمت» ── */
+.apc-admin{max-width:1040px;direction:rtl;text-align:right}
+.apc-admin *{box-sizing:border-box}
+.apc-lead{margin:0 0 16px;color:#50575e}
+.apc-box{background:#fff;border:1px solid #dcdcde;border-radius:10px;padding:18px 20px;margin:0 0 18px}
+.apc-box>h2,.apc-box__head h2{margin:0 0 12px;padding:0;font-size:16px}
+.apc-box h2 small{font-weight:400;color:#787c82;font-size:12px}
+.apc-box__head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.apc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px;margin-bottom:14px}
+.apc-grid--4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.apc-f{display:flex;flex-direction:column;gap:5px;min-width:0}
+.apc-l{font-weight:600;font-size:13px}
+.apc-hint{color:#787c82;font-size:12px;line-height:1.7}
+.apc-box input[type=text],.apc-box input[type=number],.apc-box input[type=url],.apc-box input[type=search]{width:100%;max-width:none}
+
+/* کلید روشن/خاموش */
+.apc-switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:600}
+.apc-switch input{position:absolute;opacity:0;pointer-events:none}
+.apc-switch i{position:relative;width:38px;height:22px;border-radius:999px;background:#c3c4c7;transition:background .2s;flex:none}
+.apc-switch i::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:inset-inline-start .2s}
+.apc-switch input:checked+i{background:#00a32a}
+.apc-switch input:checked+i::after{inset-inline-start:19px}
+.apc-switch input:focus-visible+i{outline:2px solid #2271b1;outline-offset:2px}
+
+/* انتخاب جدول و ردیف‌ها */
+.apc-picker{display:grid;grid-template-columns:300px minmax(0,1fr);gap:18px;margin-top:6px;padding-top:16px;border-top:1px dashed #dcdcde}
+.apc-picker__tables{display:flex;flex-direction:column;gap:8px;min-width:0}
+.apc-picker__tables select{width:100%;height:auto;min-height:250px;padding:4px;border-radius:8px;font-size:13px}
+.apc-picker__tables option{padding:6px 8px;border-radius:5px}
+.apc-picker__rows{min-width:0}
+.apc-picker__bar{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.apc-picker__bar input{flex:1;min-width:0}
+.apc-count{flex:none;padding:3px 10px;border-radius:999px;background:#f0f0f1;font-size:12px;font-weight:600}
+.apc-count.is-full{background:#fcf0c3;color:#6b4e00}
+#apc-sale-rows{max-height:420px;overflow:auto;border:1px solid #dcdcde;border-radius:8px}
+.apc-empty{margin:0;padding:28px;text-align:center;color:#787c82}
+.apc-rtable{width:100%;border-collapse:collapse;font-size:13px}
+.apc-rtable th{position:sticky;top:0;z-index:1;background:#f6f7f7;padding:8px 10px;text-align:right;font-size:12px;border-bottom:1px solid #dcdcde;white-space:nowrap}
+.apc-rtable td{padding:7px 10px;border-bottom:1px solid #f0f0f1;vertical-align:middle}
+.apc-rtable tr:last-child td{border-bottom:0}
+.apc-rtable tbody tr{cursor:pointer}
+.apc-rtable tbody tr:hover{background:#f6f7f7}
+.apc-rtable tr.is-on{background:#eef6ff}
+.apc-rtable tr.is-hidden{display:none}
+.apc-rtable .c-ck{width:34px;text-align:center}
+.apc-rtable .c-price{white-space:nowrap;font-weight:700}
+.apc-rtable .c-price.is-call{color:#b32d2e;font-weight:600}
+.apc-rtable .c-cells span+span::before{content:"·";margin-inline:6px;color:#a7aaad}
+.apc-rtable input.apc-sale-price{width:150px;direction:ltr;text-align:right}
+.apc-rtable input.apc-sale-price:disabled{background:#f6f7f7;border-color:#e2e4e7}
+
+/* ریپیتر جدول‌ها */
+.apc-item{display:flex;gap:14px;align-items:flex-start;background:#fafafa;border:1px solid #dcdcde;padding:12px;margin-bottom:10px;border-radius:8px}
+.apc-handle{cursor:move;color:#888;margin-top:6px}
+.apc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;flex:1;min-width:0}
+.apc-fields label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600}
+.apc-fields input{width:100%;max-width:none;font-weight:400}
+.apc-media img{display:block;max-width:90px;max-height:90px;margin-bottom:6px;background:#5e0520;border-radius:6px}
+.apc-item .apc-media{width:100px}
+
+@media (max-width:900px){
+  .apc-grid,.apc-fields{grid-template-columns:1fr}
+  .apc-picker{grid-template-columns:1fr}
+}
